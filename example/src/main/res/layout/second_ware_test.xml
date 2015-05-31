@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+        >
+
+    <TableLayout android:layout_width="match_parent" android:layout_height="match_parent"
+            >
+        <TableRow>
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#FFC125"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#218868"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#8B2252"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+        </TableRow>
+        <TableRow>
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#575757"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#874201"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#498653"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#364257"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+            <TextView
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#105986"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</LinearLayout>

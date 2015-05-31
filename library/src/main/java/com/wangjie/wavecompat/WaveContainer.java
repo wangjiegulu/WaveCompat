@@ -1,0 +1,67 @@
+package com.wangjie.wavecompat;
+
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.View;
+import android.widget.PopupWindow;
+
+/**
+ * Author: wangjie
+ * Email: tiantian.china.2@gmail.com
+ * Date: 5/27/15.
+ */
+public abstract class WaveContainer extends PopupWindow implements WaveDrawable.OnWaveDrawableListener {
+
+    private static final String TAG = WaveContainer.class.getSimpleName();
+    private WaveDrawable waveDrawable;
+
+    public WaveContainer(View view, WaveDrawable waveDrawable, int width, int height) {
+        super(view, width, height, false);
+        this.waveDrawable = waveDrawable;
+        initWaveDrawable(view);
+    }
+
+    private void initWaveDrawable(View view) {
+//        WaveDrawable waveDrawable = new WaveDrawable(view);
+//        waveDrawable.setFrameBitmap(frameBitmap);
+        waveDrawable.setOnWaveDrawableListener(this);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            view.setBackgroundDrawable(waveDrawable);
+        } else {
+            view.setBackground(waveDrawable);
+        }
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
+            view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
+
+    }
+
+
+    @Override
+    public void onWaveDrawableAnimatorStart() {
+
+    }
+
+    @Override
+    public void onWaveDrawableAnimatorEnd() {
+        if (!this.isShowing()) {
+            return;
+        }
+        onWaveDrawableAnimatorEndExtraAction();
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    WaveContainer.this.dismiss();
+                } catch (Exception ex) {
+                    Log.w(TAG, ex);
+                }
+            }
+        }, 500);
+    }
+
+    protected abstract void onWaveDrawableAnimatorEndExtraAction();
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+        >
+
+
+    <ImageView android:layout_width="match_parent" android:layout_height="wrap_content"
+               android:padding="32dp"
+               android:src="@drawable/ic_launcher"
+               android:background="#ff0000"
+            />
+    <TextView
+            android:id="@+id/activity_main_a_tv"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="center"
+            android:text="hello world !!!! \n Welcome ~ \n CLICK ME !"
+            android:textColor="#4933ff"
+            android:textSize="40sp"
+            android:background="#aabbcc"
+            android:textStyle="bold"
+            />
+
+    <TableLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                 android:background="#8B7D6B"
+            >
+        <TableRow>
+            <TextView
+                    android:id="@+id/activity_main_b_tv"
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#FFC125"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+            <TextView
+                    android:id="@+id/activity_main_c_tv"
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#8B2252"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+        </TableRow>
+        <TableRow>
+            <TextView
+                    android:id="@+id/activity_main_d_tv"
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#575757"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+            <TextView
+                    android:id="@+id/activity_main_e_tv"
+                    android:layout_weight="1.0"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:background="#218868"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:text="yellow"
+                    />
+        </TableRow>
+
+
+    </TableLayout>
+
+</LinearLayout>
