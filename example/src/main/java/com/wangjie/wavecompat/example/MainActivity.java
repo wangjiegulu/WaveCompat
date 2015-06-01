@@ -41,16 +41,12 @@ public class MainActivity extends AIActionBarActivity implements WaveTouchHelper
 //    public void onClickCallbackSample(View view) {
 //        switch (view.getId()) {
 //            case R.id.activity_main_a_tv:
-//                startActivityFilter();
+//                // ...
 //                break;
 //            default:
 //                break;
 //        }
 //    }
-
-    private void startActivityFilter(Point point) {
-
-    }
 
 
     @Override
@@ -89,7 +85,8 @@ public class MainActivity extends AIActionBarActivity implements WaveTouchHelper
                         new WaveDrawable()
                                 .setColor(0xff218868)
                                 .setTouchPoint(locationInScreen),
-                        generateIntent(0xff218868));
+                        new Intent(context, SecondWareTestActivity.class),
+                        0xff218868);
                 break;
             default:
                 break;
@@ -98,7 +95,7 @@ public class MainActivity extends AIActionBarActivity implements WaveTouchHelper
 
     private Intent generateIntent(int color) {
         Intent intent = new Intent(context, SecondWareTestActivity.class);
-        intent.putExtra("color", color);
+        intent.putExtra(WaveCompat.IntentKey.BACKGROUND_COLOR, color);
         return intent;
     }
 }

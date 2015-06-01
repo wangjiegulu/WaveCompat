@@ -15,9 +15,9 @@ import android.widget.PopupWindow;
 public abstract class WaveContainer extends PopupWindow implements WaveDrawable.OnWaveDrawableListener {
 
     private static final String TAG = WaveContainer.class.getSimpleName();
-    private WaveDrawable waveDrawable;
+    private WaveDrawableBase waveDrawable;
 
-    public WaveContainer(View view, WaveDrawable waveDrawable, int width, int height) {
+    public WaveContainer(View view, WaveDrawableBase waveDrawable, int width, int height) {
         super(view, width, height, false);
         this.waveDrawable = waveDrawable;
         initWaveDrawable(view);

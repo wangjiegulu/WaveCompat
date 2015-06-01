@@ -1,7 +1,6 @@
 package com.wangjie.wavecompat;
 
 import android.graphics.*;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.view.animation.DecelerateInterpolator;
 import com.nineoldandroids.animation.Animator;
@@ -13,15 +12,10 @@ import com.nineoldandroids.animation.ValueAnimator;
  * Email: tiantian.china.2@gmail.com
  * Date: 5/29/15.
  */
-public class WaveDrawable extends Drawable {
-    public interface OnWaveDrawableListener {
-        void onWaveDrawableAnimatorStart();
-
-        void onWaveDrawableAnimatorEnd();
-    }
-
+public class WaveDrawable extends WaveDrawableBase {
     private OnWaveDrawableListener onWaveDrawableListener;
 
+    @Override
     public void setOnWaveDrawableListener(OnWaveDrawableListener onWaveDrawableListener) {
         this.onWaveDrawableListener = onWaveDrawableListener;
     }
@@ -31,7 +25,7 @@ public class WaveDrawable extends Drawable {
     private Point touchPoint;
     private Paint paint;
 
-    private static final long DEFAULT_ANIMATION_DURATION = 300l;
+    private static final long DEFAULT_ANIMATION_DURATION = 200l;
     private long animationDuration = DEFAULT_ANIMATION_DURATION;
 
     public WaveDrawable setColor(int color) {
@@ -45,14 +39,16 @@ public class WaveDrawable extends Drawable {
     private Bitmap frameBitmap;
 
     public WaveDrawable() {
+        init();
+    }
+
+    private void init() {
         paint = new Paint();
         paint.setAntiAlias(true);
-//        paint.setColor(Color.GRAY);
-        paint.setColor(0x77ffffff);
+        paint.setColor(Color.GRAY);
     }
 
     private PorterDuffXfermode mProPorterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER);
-//    private PorterDuffXfermode mProPorterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.SCREEN);
 
     @Override
     protected void onBoundsChange(Rect bounds) {
@@ -60,7 +56,7 @@ public class WaveDrawable extends Drawable {
         if ((width = bounds.right - bounds.left) > 0 && (height = bounds.bottom - bounds.top) > 0) {
             invalidateSelf();
 
-            if(null == touchPoint){
+            if (null == touchPoint) {
                 touchPoint = new Point(width, height);
             }
 
@@ -109,7 +105,7 @@ public class WaveDrawable extends Drawable {
             canvas.drawBitmap(frameBitmap, 0, 0, paint);
         }
         paint.setXfermode(mProPorterDuffXfermode);
-        if(null != touchPoint){
+        if (null != touchPoint) {
             canvas.drawCircle(touchPoint.x, touchPoint.y, currentRadius, paint);
         }
     }
@@ -126,25 +122,14 @@ public class WaveDrawable extends Drawable {
         return this;
     }
 
-    @Override
-    public void setAlpha(int alpha) {
-
-    }
-
-    @Override
-    public void setColorFilter(ColorFilter cf) {
-
-    }
-
-    @Override
-    public int getOpacity() {
-        return 0;
-    }
-
     private ValueAnimator waveAnimator = new ValueAnimator();
 
     public WaveDrawable setFrameBitmap(Bitmap frameBitmap) {
         this.frameBitmap = frameBitmap;
         return this;
+    }
+
+    public void setAnimationDuration(long animationDuration) {
+        this.animationDuration = animationDuration;
     }
 }
