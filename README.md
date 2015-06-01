@@ -26,7 +26,11 @@ private Intent generateIntent(int color) {
     return intent;
 }
 ```
-
+### 3. Default Initial transition of the TO activity(Optional)
+```java
+getWindow().setBackgroundDrawable(new ColorDrawable((backgroundFromColor = getIntent().getIntExtra(WaveCompat.IntentKey.BACKGROUND_COLOR, 0xff8B7D6B))));
+WaveCompat.transitionInitial(this, ABTextUtil.dip2px(context, 80), backgroundFromColor, Color.GRAY);
+```
 
 License
 =======
