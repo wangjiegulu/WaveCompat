@@ -1,8 +1,8 @@
 package com.wangjie.wavecompat;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.PopupWindow;
@@ -50,8 +50,17 @@ public abstract class WaveContainer extends PopupWindow implements WaveDrawable.
         if (!this.isShowing()) {
             return;
         }
+        View view = getContentView();
+        Context context = view.getContext();
+        if (context instanceof Activity) {
+            Activity activity = ((Activity) context);
+            if (activity.isFinishing()) {
+                dismiss();
+                return;
+            }
+        }
         onWaveDrawableAnimatorEndExtraAction();
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+        view.postDelayed(new Runnable() {
             @Override
             public void run() {
                 try {
