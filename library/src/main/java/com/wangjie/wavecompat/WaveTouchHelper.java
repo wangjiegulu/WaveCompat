@@ -25,13 +25,12 @@ public class WaveTouchHelper implements View.OnTouchListener {
         this.view = view;
         this.onWaveTouchHelperListener = onWaveTouchHelperListener;
         this.view.setOnTouchListener(this);
+        this.view.setClickable(true);
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                return true;
             case MotionEvent.ACTION_UP:
                 int x = (int) event.getX();
                 int y = (int) event.getY();

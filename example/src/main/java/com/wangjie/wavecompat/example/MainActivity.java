@@ -5,6 +5,9 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import com.wangjie.androidbucket.utils.ABViewUtil;
+import com.wangjie.androidbucket.utils.imageprocess.ABShape;
+import com.wangjie.androidinject.annotation.annotations.base.AIClick;
 import com.wangjie.androidinject.annotation.annotations.base.AILayout;
 import com.wangjie.androidinject.annotation.annotations.base.AIView;
 import com.wangjie.androidinject.annotation.present.AIActionBarActivity;
@@ -34,19 +37,21 @@ public class MainActivity extends AIActionBarActivity implements WaveTouchHelper
         WaveTouchHelper.bindWaveTouchHelper(cTv, this);
         WaveTouchHelper.bindWaveTouchHelper(dTv, this);
         WaveTouchHelper.bindWaveTouchHelper(eTv, this);
+
+        ABViewUtil.setBackgroundDrawable(eTv, ABShape.selectorClickColorCornerSimple(0xff218868, 0x88218868, 0));
     }
 
-//    @Override
-//    @AIClick({R.id.activity_main_a_tv})
-//    public void onClickCallbackSample(View view) {
-//        switch (view.getId()) {
-//            case R.id.activity_main_a_tv:
-//                // ...
-//                break;
-//            default:
-//                break;
-//        }
-//    }
+    @Override
+    @AIClick({R.id.activity_main_e_tv})
+    public void onClickCallbackSample(View view) {
+        switch (view.getId()) {
+            case R.id.activity_main_e_tv:
+                showToastMessage("e clicked");
+                break;
+            default:
+                break;
+        }
+    }
 
 
     @Override
