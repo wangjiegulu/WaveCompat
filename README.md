@@ -22,7 +22,7 @@ public void onWaveTouchUp(View view, Point locationInView, Point locationInScree
     
 private Intent generateIntent(int color) {
     Intent intent = new Intent(context, SecondWareTestActivity.class);
-    intent.putExtra("color", color);
+    intent.putExtra(WaveCompat.IntentKey.BACKGROUND_COLOR, color);
     return intent;
 }
 ```
